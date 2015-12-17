@@ -103,7 +103,7 @@ var config = {
       ]
     }
   ],
-  CONSUME_QUEUE: QUEUE: [
+  CONSUME_QUEUE: [
     {
       ID: 'my-queue',
       OPTIONS: {

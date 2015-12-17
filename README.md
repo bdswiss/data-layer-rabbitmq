@@ -8,6 +8,15 @@ npm i data-layer-rabbitmq
 ##Configuration Object
 This object defines the RabbitMQ architecture that will be created (if it doesn't exists already). Below the different options are described.
 
+###Set connection credentials
+In order to define connection credentials you need add as key the CONNECTION string and as value an object with the following structure:
+```
+{
+  url: 'my-rabbitmq-url-with-credentials'
+}
+```
+If the CONNECTION key isn't defined then the default localhost credential are used.
+
 ###Exchange to Queue Bindings
 In order to define one or more Exchange - Queue bindings you need to add as key the BIND_QUEUE string and as value an array with objects with the following structure:
 ```
@@ -80,6 +89,9 @@ In order to instantiate DataLayerRabbitMQ import the class and pass to the const
 
 ```
 var config = {
+  CONNECTION: {
+    url: 'my-rabbitmq-url-with-credentials'
+  },
   BIND_QUEUE: [
     {
       EXCHANGE: {

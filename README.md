@@ -1,6 +1,10 @@
 #Data Layer for RabbitMQ
 Data layer for microservices communication using RabbitMQ
 
+```
+npm i data-layer-rabbitmq
+```
+
 ##Gulp commands
 ###Dev watcher
 It runs the jshint on the codebase

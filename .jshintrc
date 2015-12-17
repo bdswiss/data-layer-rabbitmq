@@ -1,0 +1,18 @@
+{
+  "globals": {
+    "global": false
+  },
+  "maxparams": 5,
+  "maxdepth": 5,
+  "maxstatements": 25,
+  "maxcomplexity": 10,
+  "esnext": true,
+  "strict": false,
+  "node": true,
+  "white": true,
+  "unused": true,
+  "quotmark":false,
+  "mocha":true,
+  "curly":true,
+  "eqeqeq":true
+}

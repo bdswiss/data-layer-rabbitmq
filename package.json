@@ -1,0 +1,39 @@
+{
+  "name": "data-layer-rabbitmq",
+  "repository": "git@github.com:bdswiss/data-layer-rabbitmq.git",
+  "version": "0.1.0",
+  "description": "Data layer for microservices communication using RabbitMQ.",
+  "main": "index.js",
+  "license": "MIT",
+  "repository": "bdswiss/data-layer-rabbitmq",
+  "keywords": [
+    "rabbitmq",
+    "amqp",
+    "datalayer",
+    "layer",
+    "microservice",
+    "etcd",
+    "messagequeue"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">= 4.0.0"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "amqplib": "0.4.0",
+    "backoff": "2.4.1",
+    "chance": "0.8.0",
+    "co": "4.6.0",
+    "underscore": "1.8.3"
+  },
+  "devDependencies": {
+    "better-console": "0.2.4",
+    "gulp": "3.9.0",
+    "gulp-jshint": "2.0.0",
+    "gulp-util": "3.0.7",
+    "jshint": "2.8.0"
+  }
+}

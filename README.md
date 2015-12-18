@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/bdswiss/data-layer-rabbitmq.svg)](https://travis-ci.org/bdswiss/data-layer-rabbitmq)
+
 #Data Layer for RabbitMQ
 Data layer for microservices communication using RabbitMQ
 

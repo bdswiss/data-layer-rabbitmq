@@ -206,3 +206,13 @@ Delete all data from the local RabbitMQ node.
 ```
 gulp rmq-delete-all
 ```
+
+## Contributing
+
+Data Layer for RabbitMQ follows the [GitFlow branching model](http://nvie.com/posts/a-successful-git-branching-model). The ```master``` branch always reflects a production-ready state while the latest development is taking place in the ```develop``` branch.
+
+Each time you want to work on a fix or a new feature, create a new branch based on the ```develop``` branch: ```git checkout -b BRANCH_NAME develop```. Only pull requests to the ```develop``` branch will be merged.
+
+## Versioning
+
+Data Layer for RabbitMQ is maintained by using the [Semantic Versioning Specification (SemVer)](http://semver.org).

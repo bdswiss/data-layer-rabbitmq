@@ -3,6 +3,7 @@
 const _ = require('underscore');
 const EventEmitter = require('events');
 const co = require('co');
+const fs = require('fs');
 const amqp = require('amqplib');
 const RabbitExchangeHandler = require('./source/rabbit-exchange-handler');
 const RabbitExchangeBindingHandler = require('./source/rabbit-exchange-binding-handler');
@@ -12,6 +13,7 @@ const RabbitDefaults = require('./source/rabbit-defaults');
 const backoff = require('backoff');
 const STATES = RabbitDefaults.HANDLER_STATES;
 const EVENT = require('./constants').EVENTS;
+
 
 class RabbitHandler extends EventEmitter{
   constructor(config){
@@ -117,7 +119,10 @@ function getConfigurationData(rmq, config){
 
 function *initCallback(rmq){
   let connString = rmq.config.CONNECTION ? rmq.config.CONNECTION.url : '';
-  rmq.connection = yield amqp.connect(connString);
+  let opts = rmq.config.CONNECTION && rmq.config.CONNECTION.ssl && rmq.config.CONNECTION.ssl.caFile ?
+              {ca:[fs.readFileSync(rmq.config.CONNECTION.ssl.caFile)]} :
+                {};
+  rmq.connection = yield amqp.connect(connString, opts);
   rmq.configBase.connection = rmq.connection;
 
   if(rmq.config.CONSUME_QUEUE){

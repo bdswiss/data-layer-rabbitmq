@@ -1,7 +1,7 @@
 {
   "name": "data-layer-rabbitmq",
   "repository": "git@github.com:bdswiss/data-layer-rabbitmq.git",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Data layer for microservices communication using RabbitMQ.",
   "main": "index.js",
   "license": "MIT",

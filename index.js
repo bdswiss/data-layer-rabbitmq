@@ -79,6 +79,11 @@ class RabbitHandler extends EventEmitter{
     return co(publish(self, exchangeData, key, message, options));
   }
 
+  consumeQueue(data){
+    const self = this;
+    return co(consumeQueue(self, data));
+  }
+
   connectionErrorCallback(){
     console.log('CONNECTION ERROR');
   }

@@ -172,11 +172,15 @@ function *bindExchange(rmq, config){
 }
 
 function *consumeQueue(rmq, config){
-  config = getConfigurationData(rmq, config.QUEUE);
-  const b = new RabbitQueueHandler(rmq, config);
-  yield b.init();
-  rmq.queues[b.id] = b;
-  b.consume();
+  let queueId = config.QUEUE.ID;
+  if(queueId && !rmq.queues[queueId] || !queueId){
+    config = getConfigurationData(rmq, config.QUEUE);
+    const b = new RabbitQueueHandler(rmq, config);
+    yield b.init();
+    queueId = b.id;
+    rmq.queues[queueId] = b;
+  }
+  yield rmq.queues[queueId].consume();
 }
 
 function *publish(rmq, exchangeData, key, message, options){

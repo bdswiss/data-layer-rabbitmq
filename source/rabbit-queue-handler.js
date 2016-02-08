@@ -24,8 +24,34 @@ class RabbitQueueHandler extends RabbitBaseHandler{
   consume(){
     const self = this;
 
-    self.channel.consume(self.id, function(data){
-      self.rmq.emit(EVENTS.MESSAGE_ARRIVED, self, data);
+    return new Promise((resolve, reject) => {
+      if(!self.consumerTag){
+        self.channel.consume(self.id, function(data){
+          self.rmq.emit(EVENTS.MESSAGE_ARRIVED, self, data);
+        }).then(function(res){
+          if(res.consumerTag){
+            self.consumerTag = res.consumerTag;
+          }
+          resolve();
+        });
+      }else{
+        reject();
+      }
+    });
+  }
+
+  cancelConsume(){
+    const self = this;
+
+    return new Promise((resolve, reject) => {
+      if(self.channel && self.consumerTag){
+        self.channel.cancel(self.consumerTag).then(function(){
+          self.consumerTag = undefined;
+          resolve();
+        });
+      }else{
+        resolve();
+      }
     });
   }
 
